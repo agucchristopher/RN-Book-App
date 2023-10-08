@@ -1,12 +1,22 @@
 import { StatusBar } from "expo-status-bar";
-import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import {
+  Image,
+  RefreshControl,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import { ScrollView, TextInput } from "react-native-gesture-handler";
 import { SafeAreaView } from "react-native-safe-area-context";
+import Section from "../components/Section";
+import axios from "axios";
 export default function Page() {
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar style="inverted" />
       <ScrollView style={styles.container}>
+        <RefreshControl refreshing={true} />
         <View style={styles.header}>
           <TouchableOpacity style={styles.imgContainer}>
             <Image source={require("../assets/me.png")} style={styles.image} />
@@ -16,12 +26,39 @@ export default function Page() {
         </View>
         <View style={styles.search}>
           <View style={styles.searchContainer}>
-            <TextInput style={styles.searchInput} placeholder="Search.." />
+            <TextInput
+              style={styles.searchInput}
+              placeholder="Search Books.."
+            />
           </View>
-          <TouchableOpacity style={styles.searchBtn}>
-            <Text>Search</Text>
+          <TouchableOpacity
+            style={styles.searchBtn}
+            onPress={async () => {
+              const url =
+                "https://hapi-books.p.rapidapi.com/nominees/romance/2020";
+              const options = {
+                method: "GET",
+                headers: {
+                  "X-RapidAPI-Key":
+                    "f0dfe99216mshf97a4619dc1e299p128480jsn025f6596c70c",
+                  "X-RapidAPI-Host": "hapi-books.p.rapidapi.com",
+                },
+              };
+
+              try {
+                const response = await fetch(url, options);
+                const result = await response.text();
+                console.log(result);
+              } catch (error) {
+                console.error(error);
+              }
+            }}
+          >
+            <Image source={require("../assets/search.png")} />
           </TouchableOpacity>
         </View>
+        <Section title="Top Publication" />
+        <Section title="Recommended Books" />
       </ScrollView>
     </SafeAreaView>
   );
@@ -72,11 +109,14 @@ const styles = StyleSheet.create({
     width: "80%",
     alignSelf: "center",
     height: 50,
-    margin: 4,
+    // margin: 4,
     alignContent: "center",
     justifyContent: "center",
     padding: 15,
     borderRadius: 8,
+    // borderTopLeftRadius: 0,
+    borderTopRightRadius: 0,
+    borderBottomRightRadius: 0,
   },
   searchInput: {
     fontSize: 20,
@@ -97,6 +137,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     padding: 5,
-    borderRadius: 5,
+    borderRadius: 8,
+    borderTopLeftRadius: 0,
+    borderBottomLeftRadius: 0,
   },
 });
