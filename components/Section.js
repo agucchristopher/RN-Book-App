@@ -1,4 +1,10 @@
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import {
+  ImageBackground,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import React from "react";
 import { FlatList, ScrollView } from "react-native-gesture-handler";
 
@@ -30,7 +36,15 @@ const Section = ({ title }) => {
           ]}
           renderItem={() => {
             return (
-              <TouchableOpacity style={styles.bookCover}></TouchableOpacity>
+              <TouchableOpacity style={styles.bookCover}>
+                <ImageBackground
+                  style={styles.bookCover}
+                  source={{
+                    uri: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1677087948i/111172379.jpg",
+                  }}
+                  height={24}
+                ></ImageBackground>
+              </TouchableOpacity>
             );
           }}
         />
@@ -65,5 +79,8 @@ const styles = StyleSheet.create({
     width: 120,
     marginLeft: 4,
     borderRadius: 5,
+    alignItems: "center",
+    justifyContent: "center",
+    resizeMode: "cover",
   },
 });

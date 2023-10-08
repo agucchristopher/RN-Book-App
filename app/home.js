@@ -12,6 +12,29 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import Section from "../components/Section";
 import axios from "axios";
 export default function Page() {
+  const getBooks = async () => {
+    try {
+      const headersList = {
+        Accept: "*/*",
+        "User-Agent": "Thunder Client (https://www.thunderclient.com)",
+        "X-RapidAPI-Key": "f0dfe99216mshf97a4619dc1e299p128480jsn025f6596c70c",
+        "X-RapidAPI-Host": "hapi-books.p.rapidapi.com",
+      };
+
+      const response = await axios.get(
+        "https://hapi-books.p.rapidapi.com/month/2023/3",
+        {
+          headers: headersList,
+        }
+      );
+
+      const data = response.data;
+      console.log(data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar style="inverted" />
@@ -31,29 +54,7 @@ export default function Page() {
               placeholder="Search Books.."
             />
           </View>
-          <TouchableOpacity
-            style={styles.searchBtn}
-            onPress={async () => {
-              const url =
-                "https://hapi-books.p.rapidapi.com/nominees/romance/2020";
-              const options = {
-                method: "GET",
-                headers: {
-                  "X-RapidAPI-Key":
-                    "f0dfe99216mshf97a4619dc1e299p128480jsn025f6596c70c",
-                  "X-RapidAPI-Host": "hapi-books.p.rapidapi.com",
-                },
-              };
-
-              try {
-                const response = await fetch(url, options);
-                const result = await response.text();
-                console.log(result);
-              } catch (error) {
-                console.error(error);
-              }
-            }}
-          >
+          <TouchableOpacity style={styles.searchBtn} onPress={() => getBooks()}>
             <Image source={require("../assets/search.png")} />
           </TouchableOpacity>
         </View>
