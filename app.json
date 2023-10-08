@@ -2,6 +2,7 @@
   "expo": {
     "name": "BookApp",
     "slug": "BookApp",
+    "scheme": "chris",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -11,9 +12,7 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true
     },
@@ -23,8 +22,13 @@
         "backgroundColor": "#ffffff"
       }
     },
-    "web": {
-      "favicon": "./assets/favicon.png"
-    }
+    "plugins": [
+      [
+        "expo-router",
+        {
+          "asyncRoutes": "development"
+        }
+      ]
+    ]
   }
 }
