@@ -354,3 +354,76 @@ export const horrorBooks = [
     url: "https://www.goodreads.com/book/show/63126737-just-stay-away",
   },
 ];
+
+export const scifi = [
+  {
+    book_id: 61885029,
+    name: "Starter Villain",
+    cover:
+      "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1683564155l/61885029.jpg",
+    url: "https://www.goodreads.com/book/show/61885029-starter-villain",
+  },
+  {
+    book_id: 101673225,
+    name: "Land of Milk and Honey",
+    cover:
+      "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1683827919l/101673225.jpg",
+    url: "https://www.goodreads.com/book/show/101673225-land-of-milk-and-honey",
+  },
+  {
+    book_id: 101150684,
+    name: "The Death I Gave Him",
+    cover:
+      "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1687105609l/101150684.jpg",
+    url: "https://www.goodreads.com/book/show/101150684-the-death-i-gave-him",
+  },
+  {
+    book_id: 62052292,
+    name: "The Meadows",
+    cover:
+      "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1693518907l/62052292._SX318_.jpg",
+    url: "https://www.goodreads.com/book/show/62052292-the-meadows",
+  },
+  {
+    book_id: 75302298,
+    name: "The World Wasn't Ready for You",
+    cover:
+      "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1684207313l/75302298.jpg",
+    url: "https://www.goodreads.com/book/show/75302298-the-world-wasn-t-ready-for-you",
+  },
+  {
+    book_id: 63293050,
+    name: "Androne",
+    cover:
+      "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1677855145l/63293050._SY475_.jpg",
+    url: "https://www.goodreads.com/book/show/63293050-androne",
+  },
+  {
+    book_id: 62989759,
+    name: "South",
+    cover:
+      "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1679465543l/62989759.jpg",
+    url: "https://www.goodreads.com/book/show/62989759-south",
+  },
+  {
+    book_id: 75302296,
+    name: "People Collide",
+    cover:
+      "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1676308308l/75302296.jpg",
+    url: "https://www.goodreads.com/book/show/75302296-people-collide",
+  },
+  {
+    book_id: 75495021,
+    name: "The Salvation Gambit",
+    cover:
+      "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1684816778l/75495021.jpg",
+    url: "https://www.goodreads.com/book/show/75495021-the-salvation-gambit",
+  },
+  {
+    book_id: 179770857,
+    name: "With Regrets",
+    cover:
+      "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1687282135l/179770857.jpg",
+    url: "https://www.goodreads.com/book/show/179770857-with-regrets",
+  },
+];

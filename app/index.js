@@ -17,6 +17,7 @@ import {
   popularBooks,
   loveBooks,
   horrorBooks,
+  scifi,
 } from "../data/books";
 export default function Page() {
   // const [popularBooks, setpopularBooks] = useState([]);
@@ -69,34 +70,32 @@ export default function Page() {
     // getRecommendedBooks();
   }, []);
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <SafeAreaView style={styles.container}>
       <StatusBar style="light" backgroundColor="black" />
+
+      <View style={styles.header}>
+        <TouchableOpacity style={styles.imgContainer}>
+          <Image source={require("../assets/me.png")} style={styles.image} />
+        </TouchableOpacity>
+        <Text style={styles.subtitle}>Hey, Christopher 👋🏾</Text>
+        {/* <Text style={styles.title}>Hey, Chris</Text> */}
+      </View>
+      <View style={styles.search}>
+        <View style={styles.searchContainer}>
+          <TextInput style={styles.searchInput} placeholder="Search Books.." />
+        </View>
+        <TouchableOpacity style={styles.searchBtn} onPress={() => getBooks()}>
+          <Image source={require("../assets/search.png")} />
+        </TouchableOpacity>
+      </View>
       <ScrollView
         // onScroll={({ target }) => console.log(target)}
         style={styles.container}
       >
         <RefreshControl refreshing={true} />
-        <View style={styles.header}>
-          <TouchableOpacity style={styles.imgContainer}>
-            <Image source={require("../assets/me.png")} style={styles.image} />
-          </TouchableOpacity>
-          <Text style={styles.subtitle}>Hey, Christopher 👋🏾</Text>
-          {/* <Text style={styles.title}>Hey, Chris</Text> */}
-        </View>
-        <View style={styles.search}>
-          <View style={styles.searchContainer}>
-            <TextInput
-              style={styles.searchInput}
-              placeholder="Search Books.."
-            />
-          </View>
-          <TouchableOpacity style={styles.searchBtn} onPress={() => getBooks()}>
-            <Image source={require("../assets/search.png")} />
-          </TouchableOpacity>
-        </View>
         <Section title="Top Publication" data={popularBooks} />
         <Section title="Recommended Books" data={recommendedBooks} />
-        <Section title="Love" data={loveBooks} />
+        <Section title="Sci-Fi" data={scifi} />
         <Section title="Horror" data={horrorBooks} />
       </ScrollView>
     </SafeAreaView>
@@ -167,6 +166,7 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     justifyContent: "center",
     marginTop: 15,
+    marginBottom: 15,
   },
   searchBtn: {
     backgroundColor: "orange",

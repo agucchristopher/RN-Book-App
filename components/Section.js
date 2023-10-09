@@ -8,8 +8,9 @@ import {
 } from "react-native";
 import React from "react";
 import { FlatList, ScrollView } from "react-native-gesture-handler";
-
+import { useRouter } from "expo-router";
 const Section = ({ title, data }) => {
+  let router = useRouter();
   return (
     <View style={styles.container}>
       <Text style={styles.title}>{title}</Text>
@@ -19,7 +20,10 @@ const Section = ({ title, data }) => {
           data={data}
           renderItem={({ item }) => {
             return (
-              <TouchableOpacity style={styles.bookCover}>
+              <TouchableOpacity
+                onPress={() => router.push("/bookinfo")}
+                style={styles.bookCover}
+              >
                 <Image
                   style={styles.bookCover}
                   source={{

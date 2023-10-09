@@ -1,4 +1,4 @@
-import Home from "./home";
+import { Stack } from "expo-router";
 import { useFonts } from "expo-font";
 import { ActivityIndicator } from "react-native";
 export default () => {
@@ -16,5 +16,14 @@ export default () => {
       />
     );
   }
-  return <Home />;
+  return (
+    <Stack
+      // initialRoute="home"
+      screenOptions={{
+        headerShown: false,
+      }}
+    >
+      <Stack.Screen name="index" options={{}} />
+    </Stack>
+  );
 };
