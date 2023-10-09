@@ -8,48 +8,31 @@ import {
 import React from "react";
 import { FlatList, ScrollView } from "react-native-gesture-handler";
 
-const Section = ({ title }) => {
+const Section = ({ title, data }) => {
   return (
-    <ScrollView style={styles.container}>
+    <View style={styles.container}>
       <Text style={styles.title}>{title}</Text>
-      {
-        <FlatList
-          horizontal={true}
-          data={[
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-          ]}
-          renderItem={() => {
-            return (
-              <TouchableOpacity style={styles.bookCover}>
-                <ImageBackground
-                  style={styles.bookCover}
-                  source={{
-                    uri: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1677087948i/111172379.jpg",
-                  }}
-                  height={24}
-                ></ImageBackground>
-              </TouchableOpacity>
-            );
-          }}
-        />
-      }
-    </ScrollView>
+
+      <FlatList
+        horizontal={true}
+        data={data}
+        renderItem={({ item }) => {
+          return (
+            <TouchableOpacity style={styles.bookCover}>
+              <ImageBackground
+                style={styles.bookCover}
+                source={{
+                  // uri: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1677087948i/111172379.jpg",
+                  uri: item.cover,
+                }}
+                resizeMode={"cover"}
+                height={24}
+              ></ImageBackground>
+            </TouchableOpacity>
+          );
+        }}
+      />
+    </View>
   );
 };
 

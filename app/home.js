@@ -7,34 +7,62 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
+import { useEffect, useState } from "react";
 import { ScrollView, TextInput } from "react-native-gesture-handler";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Section from "../components/Section";
 import axios from "axios";
+import { recommendedBooks, popularBooks } from "../data/books";
 export default function Page() {
-  const getBooks = async () => {
-    try {
-      const headersList = {
-        Accept: "*/*",
-        "User-Agent": "Thunder Client (https://www.thunderclient.com)",
-        "X-RapidAPI-Key": "f0dfe99216mshf97a4619dc1e299p128480jsn025f6596c70c",
-        "X-RapidAPI-Host": "hapi-books.p.rapidapi.com",
-      };
+  // const [popularBooks, setpopularBooks] = useState([]);
+  // const [recommendedBooks, setrecommendedBooks] = useState([]);
+  // const getBooks = async () => {
+  //   try {
+  //     const headersList = {
+  //       Accept: "*/*",
+  //       "User-Agent": "Thunder Client (https://www.thunderclient.com)",
+  //       "X-RapidAPI-Key": "f0dfe99216mshf97a4619dc1e299p128480jsn025f6596c70c",
+  //       "X-RapidAPI-Host": "hapi-books.p.rapidapi.com",
+  //     };
 
-      const response = await axios.get(
-        "https://hapi-books.p.rapidapi.com/month/2023/3",
-        {
-          headers: headersList,
-        }
-      );
+  //     const response = await axios.get(
+  //       `https://hapi-books.p.rapidapi.com/month/2023/${10}`,
+  //       {
+  //         headers: headersList,
+  //       }
+  //     );
 
-      const data = response.data;
-      console.log(data);
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  //     const data = response.data;
+  //     console.log("Popular ", data);
+  //     setpopularBooks(data);
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  //   return;
+  // };
+  // const getRecommendedBooks = async () => {
+  //   const url = "https://hapi-books.p.rapidapi.com/week/horror/10";
+  //   const options = {
+  //     method: "GET",
+  //     headers: {
+  //       "X-RapidAPI-Key": "f0dfe99216mshf97a4619dc1e299p128480jsn025f6596c70c",
+  //       "X-RapidAPI-Host": "hapi-books.p.rapidapi.com",
+  //     },
+  //   };
 
+  //   try {
+  //     const response = await fetch(url, options);
+  //     const result = await response.json();
+  //     console.log(result);
+  //     setrecommendedBooks(result);
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
+  useEffect(() => {
+    // getBooks();
+    // getRecommendedBooks();
+  }, []);
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar style="inverted" />
@@ -58,8 +86,10 @@ export default function Page() {
             <Image source={require("../assets/search.png")} />
           </TouchableOpacity>
         </View>
-        <Section title="Top Publication" />
-        <Section title="Recommended Books" />
+        <Section title="Top Publication" data={popularBooks} />
+        <Section title="Recommended Books" data={recommendedBooks} />
+        <Section title="Love" data={recommendedBooks} />
+        <Section title="Horror" data={recommendedBooks} />
       </ScrollView>
     </SafeAreaView>
   );
