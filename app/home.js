@@ -12,7 +12,12 @@ import { ScrollView, TextInput } from "react-native-gesture-handler";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Section from "../components/Section";
 import axios from "axios";
-import { recommendedBooks, popularBooks } from "../data/books";
+import {
+  recommendedBooks,
+  popularBooks,
+  loveBooks,
+  horrorBooks,
+} from "../data/books";
 export default function Page() {
   // const [popularBooks, setpopularBooks] = useState([]);
   // const [recommendedBooks, setrecommendedBooks] = useState([]);
@@ -64,9 +69,12 @@ export default function Page() {
     // getRecommendedBooks();
   }, []);
   return (
-    <SafeAreaView style={styles.container}>
-      <StatusBar style="inverted" />
-      <ScrollView style={styles.container}>
+    <SafeAreaView style={{ flex: 1 }}>
+      <StatusBar style="light" backgroundColor="black" />
+      <ScrollView
+        // onScroll={({ target }) => console.log(target)}
+        style={styles.container}
+      >
         <RefreshControl refreshing={true} />
         <View style={styles.header}>
           <TouchableOpacity style={styles.imgContainer}>
@@ -88,8 +96,8 @@ export default function Page() {
         </View>
         <Section title="Top Publication" data={popularBooks} />
         <Section title="Recommended Books" data={recommendedBooks} />
-        <Section title="Love" data={recommendedBooks} />
-        <Section title="Horror" data={recommendedBooks} />
+        <Section title="Love" data={loveBooks} />
+        <Section title="Horror" data={horrorBooks} />
       </ScrollView>
     </SafeAreaView>
   );
@@ -98,7 +106,6 @@ export default function Page() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // alignItems: "center",
     padding: 5,
     backgroundColor: "#121212",
   },

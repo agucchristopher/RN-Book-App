@@ -1,4 +1,5 @@
 import {
+  Image,
   ImageBackground,
   StyleSheet,
   Text,
@@ -12,26 +13,30 @@ const Section = ({ title, data }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>{title}</Text>
-
-      <FlatList
-        horizontal={true}
-        data={data}
-        renderItem={({ item }) => {
-          return (
-            <TouchableOpacity style={styles.bookCover}>
-              <ImageBackground
-                style={styles.bookCover}
-                source={{
-                  // uri: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1677087948i/111172379.jpg",
-                  uri: item.cover,
-                }}
-                resizeMode={"cover"}
-                height={24}
-              ></ImageBackground>
-            </TouchableOpacity>
-          );
-        }}
-      />
+      <View style={{ flexDirection: "row" }}>
+        <FlatList
+          horizontal={true}
+          data={data}
+          renderItem={({ item }) => {
+            return (
+              <TouchableOpacity style={styles.bookCover}>
+                <Image
+                  style={styles.bookCover}
+                  source={{
+                    // uri: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1677087948i/111172379.jpg",
+                    uri: item.cover,
+                  }}
+                  resizeMode={"contain"}
+                  // height={24}
+                />
+              </TouchableOpacity>
+            );
+          }}
+          // renderItem={({ item }) => {
+          //   return <Text style={styles.title}>{item.name}</Text>;
+          // }}
+        />
+      </View>
     </View>
   );
 };
@@ -47,7 +52,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 25,
-    fontFamily: "RBold",
+    fontFamily: "RMedium",
     color: "white",
   },
   subtitle: {
@@ -64,6 +69,5 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     alignItems: "center",
     justifyContent: "center",
-    resizeMode: "cover",
   },
 });

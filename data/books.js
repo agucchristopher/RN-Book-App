@@ -208,3 +208,149 @@ export const popularBooks = [
     url: "https://www.goodreads.com/book/show/87556695-let-us-descend",
   },
 ];
+
+export const loveBooks = [
+  {
+    book_id: 60393672,
+    name: "It Starts with Us",
+    cover:
+      "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1644605295l/60393672._SY475_.jpg",
+    url: "https://www.goodreads.com/book/show/60393672-it-starts-with-us",
+  },
+  {
+    book_id: 58341222,
+    name: "Reminders of Him",
+    cover:
+      "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1627673942l/58341222._SY475_.jpg",
+    url: "https://www.goodreads.com/book/show/58341222-reminders-of-him",
+  },
+  {
+    book_id: 125162715,
+    name: "Mine to Promise",
+    cover:
+      "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1689945536l/125162715._SY475_.jpg",
+    url: "https://www.goodreads.com/book/show/125162715-mine-to-promise",
+  },
+  {
+    book_id: 38926487,
+    name: "All Your Perfects",
+    cover:
+      "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1531682842l/38926487.jpg",
+    url: "https://www.goodreads.com/book/show/38926487-all-your-perfects",
+  },
+  {
+    book_id: 162479003,
+    name: "The Way I Hate Him",
+    cover:
+      "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1685116901l/162479003._SY475_.jpg",
+    url: "https://www.goodreads.com/book/show/162479003-the-way-i-hate-him",
+  },
+  {
+    book_id: 41057294,
+    name: "Normal People",
+    cover:
+      "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1571423190l/41057294._SY475_.jpg",
+    url: "https://www.goodreads.com/book/show/41057294-normal-people",
+  },
+  {
+    book_id: 53137938,
+    name: "The Things We Leave Unfinished",
+    cover:
+      "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1588868282l/53137938.jpg",
+    url: "https://www.goodreads.com/book/show/53137938-the-things-we-leave-unfinished",
+  },
+  {
+    book_id: 49018309,
+    name: "Finding Perfect",
+    cover:
+      "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1575153032l/49018309._SY475_.jpg",
+    url: "https://www.goodreads.com/book/show/49018309-finding-perfect",
+  },
+  {
+    book_id: 68047988,
+    name: "The Paris Assignment",
+    cover:
+      "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1676460585l/68047988._SY475_.jpg",
+    url: "https://www.goodreads.com/book/show/68047988-the-paris-assignment",
+  },
+  {
+    book_id: 35995489,
+    name: "The Extraordinary Life of Sam Hell",
+    cover:
+      "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1510251600l/35995489._SY475_.jpg",
+    url: "https://www.goodreads.com/book/show/35995489-the-extraordinary-life-of-sam-hell",
+  },
+];
+
+export const horrorBooks = [
+  {
+    book_id: 62080187,
+    name: "Never Lie",
+    cover:
+      "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1661428846l/62080187._SY475_.jpg",
+    url: "https://www.goodreads.com/book/show/62080187-never-lie",
+  },
+  {
+    book_id: 57795665,
+    name: "The Locked Door",
+    cover:
+      "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1618859577l/57795665._SY475_.jpg",
+    url: "https://www.goodreads.com/book/show/57795665-the-locked-door",
+  },
+  {
+    book_id: 80830635,
+    name: "Don't Let Her Stay",
+    cover:
+      "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1674147285l/80830635._SY475_.jpg",
+    url: "https://www.goodreads.com/book/show/80830635-don-t-let-her-stay",
+  },
+  {
+    book_id: 65916344,
+    name: "Holly",
+    cover:
+      "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1674418461l/65916344.jpg",
+    url: "https://www.goodreads.com/book/show/65916344-holly",
+  },
+  {
+    book_id: 123193218,
+    name: "Ward D",
+    cover:
+      "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1678127541l/123193218._SY475_.jpg",
+    url: "https://www.goodreads.com/book/show/123193218-ward-d",
+  },
+  {
+    book_id: 54197718,
+    name: "One by One",
+    cover:
+      "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1592705582l/54197718._SY475_.jpg",
+    url: "https://www.goodreads.com/book/show/54197718-one-by-one",
+  },
+  {
+    book_id: 195945770,
+    name: "In Bloom",
+    cover:
+      "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1693698091l/195945770._SY475_.jpg",
+    url: "https://www.goodreads.com/book/show/195945770-in-bloom",
+  },
+  {
+    book_id: 58724923,
+    name: "Hidden Pictures",
+    cover:
+      "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1635260162l/58724923.jpg",
+    url: "https://www.goodreads.com/book/show/58724923-hidden-pictures",
+  },
+  {
+    book_id: 61458888,
+    name: "You Shouldn't Have Come Here",
+    cover:
+      "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1666310687l/61458888.jpg",
+    url: "https://www.goodreads.com/book/show/61458888-you-shouldn-t-have-come-here",
+  },
+  {
+    book_id: 63126737,
+    name: "Just Stay Away",
+    cover:
+      "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1686309955l/63126737.jpg",
+    url: "https://www.goodreads.com/book/show/63126737-just-stay-away",
+  },
+];
