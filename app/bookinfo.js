@@ -5,11 +5,21 @@ import {
   Image,
   ScrollView,
   TouchableOpacity,
+  Dimensions,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import React from "react";
-
-const Bookinfo = ({ id }) => {
+import React, { useEffect, useState } from "react";
+import { useLocalSearchParams, useRouter } from "expo-router";
+import { BlurView } from "expo-blur";
+const Bookinfo = ({}) => {
+  const params = useLocalSearchParams();
+  const [id, setId] = useState(params.id);
+  const [data, setData] = useState("");
+  console.log(params);
+  useEffect(() => {
+    getInfo(id);
+  }, []);
+  const router = useRouter();
   const getInfo = async () => {
     const url = `https://hapi-books.p.rapidapi.com/book/${id}`;
     const options = {
@@ -22,7 +32,8 @@ const Bookinfo = ({ id }) => {
 
     try {
       const response = await fetch(url, options);
-      const result = await response.text();
+      const result = await response.json();
+      setData(result);
       console.log(result);
     } catch (error) {
       console.error(error);
@@ -30,17 +41,30 @@ const Bookinfo = ({ id }) => {
   };
   return (
     <SafeAreaView style={[styles.container]}>
-      <TouchableOpacity style={styles.header}>
-        <Image
-          source={require("../assets/arrow.png")}
-          style={{
-            height: 35,
-            width: 35,
-          }}
-          resizeMode={"cover"}
-        />
-      </TouchableOpacity>
-      <ScrollView style={styles.container}></ScrollView>
+      <ScrollView style={styles.container}>
+        <View intensity={100}>
+          <TouchableOpacity onPress={() => router.back()} style={styles.header}>
+            <Image
+              source={require("../assets/arrow.png")}
+              style={{
+                height: 35,
+                width: Dimensions.get("window").width,
+              }}
+              resizeMode={"contain"}
+            />
+          </TouchableOpacity>
+          <Image
+            source={{ uri: `${params.cover}` }}
+            style={{
+              height: 200,
+              width: Dimensions.get("window").width,
+              backgroundColor: "black",
+            }}
+            resizeMode={"contain"}
+          />
+        </View>
+        <Text style={styles.subtitle}>{data.synopsis}</Text>
+      </ScrollView>
     </SafeAreaView>
   );
 };
@@ -50,7 +74,7 @@ export default Bookinfo;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 5,
+    // padding: 5,
     backgroundColor: "#121212",
   },
   main: {
@@ -64,7 +88,7 @@ const styles = StyleSheet.create({
     fontFamily: "RBold",
   },
   subtitle: {
-    fontSize: 28,
+    fontSize: 23,
     color: "#fff",
     fontFamily: "RBold",
   },
@@ -83,6 +107,8 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     borderRadius: 100000,
     padding: 5,
+    position: "absolute",
+    zIndex: 5,
     // justifyContent: "space-between",
   },
   imgContainer: {

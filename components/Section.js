@@ -21,7 +21,12 @@ const Section = ({ title, data }) => {
           renderItem={({ item }) => {
             return (
               <TouchableOpacity
-                onPress={() => router.push("/bookinfo")}
+                onPress={() =>
+                  router.push({
+                    pathname: "/bookinfo",
+                    params: { id: item.book_id, cover: item.cover },
+                  })
+                }
                 style={styles.bookCover}
               >
                 <Image
