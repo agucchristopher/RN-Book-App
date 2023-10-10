@@ -24,7 +24,13 @@ const Section = ({ title, data }) => {
                 onPress={() =>
                   router.push({
                     pathname: "/bookinfo",
-                    params: { id: item.book_id, cover: item.cover },
+                    params: {
+                      id: item.book_id,
+                      cover: item.cover,
+                      name: item.name,
+                      author: item.author,
+                      title: item.title,
+                    },
                   })
                 }
                 style={styles.bookCover}

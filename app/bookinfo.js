@@ -6,6 +6,7 @@ import {
   ScrollView,
   TouchableOpacity,
   Dimensions,
+  ActivityIndicator,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import React, { useEffect, useState } from "react";
@@ -15,6 +16,8 @@ const Bookinfo = ({}) => {
   const params = useLocalSearchParams();
   const [id, setId] = useState(params.id);
   const [data, setData] = useState("");
+  const [loading, setLoading] = useState(true);
+  const [author, setAuthor] = useState(data.authors);
   console.log(params);
   useEffect(() => {
     getInfo(id);
@@ -35,35 +38,51 @@ const Bookinfo = ({}) => {
       const result = await response.json();
       setData(result);
       console.log(result);
+      setLoading(false);
     } catch (error) {
       console.error(error);
     }
   };
   return (
     <SafeAreaView style={[styles.container]}>
-      <ScrollView style={styles.container}>
-        <View intensity={100}>
-          <TouchableOpacity onPress={() => router.back()} style={styles.header}>
-            <Image
-              source={require("../assets/arrow.png")}
-              style={{
-                height: 35,
-                width: Dimensions.get("window").width,
-              }}
-              resizeMode={"contain"}
-            />
-          </TouchableOpacity>
+      <View intensity={100}>
+        <TouchableOpacity onPress={() => router.back()} style={styles.header}>
           <Image
-            source={{ uri: `${params.cover}` }}
+            source={require("../assets/arrow.png")}
             style={{
-              height: 200,
+              height: 35,
               width: Dimensions.get("window").width,
-              backgroundColor: "black",
             }}
             resizeMode={"contain"}
           />
-        </View>
-        <Text style={styles.subtitle}>{data.synopsis}</Text>
+        </TouchableOpacity>
+        <Image
+          source={{ uri: `${params.cover}` }}
+          style={{
+            height: 200,
+            width: Dimensions.get("window").width,
+            backgroundColor: "black",
+          }}
+          resizeMode={"contain"}
+        />
+      </View>
+      <ScrollView style={styles.container}>
+        {!loading ? (
+          <>
+            <Text style={styles.title}>{params.name}</Text>
+            <Text style={[{ margin: 10 }, styles.subtitle]}>
+              Author: {data.authors}
+            </Text>
+            <Text
+              numberOfLines={20}
+              style={[{ margin: 10, fontSize: 19 }, styles.subtitle]}
+            >
+              {data.synopsis}
+            </Text>
+          </>
+        ) : (
+          <ActivityIndicator size={"large"} color={"white"} />
+        )}
       </ScrollView>
     </SafeAreaView>
   );
@@ -84,13 +103,15 @@ const styles = StyleSheet.create({
     marginHorizontal: "auto",
   },
   title: {
-    fontSize: 30,
-    fontFamily: "RBold",
+    fontSize: 28,
+    fontFamily: "RMedium",
+    color: "white",
+    margin: 10,
   },
   subtitle: {
     fontSize: 23,
     color: "#fff",
-    fontFamily: "RBold",
+    fontFamily: "RRegular",
   },
   image: {
     height: 45,
